@@ -41,8 +41,9 @@ app.get('/crs', function(req,res){
 })
 
 //gpu_page route
-app.get('/crs/gpu', gpu_nba.gpu_query)
-
+app.get('/crs/gpu', gpu_nba.gpu_home);
+app.post('/crs/gpu/result', gpu_nba.gpu_query_filter);
+//app.get('/crs/gpu/result', gpu_nba.gpu_query);
 
 app.listen(3000);
 

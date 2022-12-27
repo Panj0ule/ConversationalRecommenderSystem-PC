@@ -33,7 +33,7 @@
 						(option terbawah intensitas tertinggi)
 					</p>
 					<!-- STATEMENT 1 GAMES -->
-					<form class=" bg-white px-4" action="">
+					<form class=" bg-white px-4" action="/crs/gpu/result" method="POST">
 						<p class="fw-bold mt-2 mb-0">
 							Pilihlah intensitas anda dalam <a class="text-success">aktivitas bermain games</a>: 
 						</p>
@@ -41,40 +41,37 @@
 							Choose your intensity for <a class="text-success">playing games activity</a>: 
 						</p>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-							<label class="form-check-label" for="radioExample1">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox1" value="no"/>
+							<label class="form-check-label" for="statement1_checkbox1">
 								Tidak/No, Saya tidak akan bermain games pada PC ini.
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-							<label class="form-check-label" for="radioExample2">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox2" value="Lightweight Games"/>
+							<label class="form-check-label" for="statement1_checkbox2">
 								Lightweight Games (Minigames, Children games)
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-							<label class="form-check-label" for="radioExample3">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox3" value="Casual Games"/>
+							<label class="form-check-label" for="statement1_checkbox3">
 								Casual Games
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample4" />
-							<label class="form-check-label" for="radioExample4">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox4" value="Competitive Games"/>
+							<label class="form-check-label" for="statement1_checkbox4">
 								Competitive Games
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample5" />
-							<label class="form-check-label" for="radioExample5">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox5"value="Heavy Performance Games" />
+							<label class="form-check-label" for="statement1_checkbox5">
 								Heavy Performance Games
 							</label>
 						</div>
-					</form>
 
-
-					<!-- STATEMENT 2 MULTIMEDIA -->
-					<form class=" bg-white px-4" action="">
+						<!-- STATEMENT 2 MULTIMEDIA -->
 						<p class="fw-bold mt-2 mb-0">
 							Pilihlah intensitas anda dalam <a class="text-success">aktivitas pekerjaan Multimedia</a>: 
 						</p>
@@ -82,34 +79,31 @@
 							Choose you intensity for <a class="text-success">Multimedia Work activity</a>: 
 						</p>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-							<label class="form-check-label" for="radioExample1">
-								Hanya Memutar Video
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox1" value="Hanya Memutar Video"/>
+							<label class="form-check-label" for="statement2_checkbox1">
+								Memutar Video
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-							<label class="form-check-label" for="radioExample2">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox2" value="Standard Digital/Video Editing"/>
+							<label class="form-check-label" for="statement2_checkbox2">
 								Standard Digital/Video Editing
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-							<label class="form-check-label" for="radioExample3">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox3" value="Animating/3D Modelling"/>
+							<label class="form-check-label" for="statement2_checkbox3">
 								Animating/3D Modelling
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample4" />
-							<label class="form-check-label" for="radioExample4">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox4" value="Professional Editing/Rendering"/>
+							<label class="form-check-label" for="statement2_checkbox4">
 								Professional Editing/Rendering
 							</label>
 						</div>
-					</form>
-					
-					
-					<!-- STATEMENT 3 COMPVISION -->
-					<form class=" bg-white px-4" action="">
+
+						<!-- STATEMENT 3 COMPVISION -->
 						<p class="fw-bold mt-2 mb-0">
 							Pilihlah intensitas anda dalam <a class="text-success">aktivitas Computer Vision/Machine Learning</a>: 
 						</p>
@@ -117,28 +111,25 @@
 							Choose you intensity for <a class="text-success">Computer Vision/Machine Learning</a>: 
 						</p>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-							<label class="form-check-label" for="radioExample1">
+							<input class="form-check-input" type="checkbox" name="statement3" id="statement3_checkbox1" value="no"/>
+							<label class="form-check-label" for="statement3_checkbox1">
 								Tidak/No, Saya tidak akan melakukan aktivitas Computer Vision.
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-							<label class="form-check-label" for="radioExample2">
+							<input class="form-check-input" type="checkbox" name="statement3" id="statement3_checkbox2" value="Standard Resolution Data ML"/>
+							<label class="form-check-label" for="statement3_checkbox2">
 								Standard Resolution Data ML
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-							<label class="form-check-label" for="radioExample3">
+							<input class="form-check-input" type="checkbox" name="statement3" id="statement3_checkbox3" value="High Resolution Data ML"/>
+							<label class="form-check-label" for="statement3_checkbox3">
 								High Resolution Data ML
 							</label>
 						</div>
-					</form>
-					
-					
-					<!-- STATEMENT 4 MONITOR -->
-					<form class=" bg-white px-4" action="">
+
+						<!-- STATEMENT 4 MONITOR -->
 						<p class="fw-bold mt-2 mb-0">
 							Apakah anda akan menggunakan multi monitor? 
 						</p>
@@ -146,37 +137,55 @@
 							Do you intend to use multi monitor? 
 						</p>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-							<label class="form-check-label" for="radioExample1">
-								Tidak/No, 1 Monitor
+							<input class="form-check-input" type="radio" name="statement4" id="statement4_radio0" value="0" required/>
+							<label class="form-check-label" for="statement4_radio0">
+								Tidak ada preferensi/ No preference
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample2" />
-							<label class="form-check-label" for="radioExample2">
+							<input class="form-check-input" type="radio" name="statement4" id="statement4_radio1" value="1" required/>
+							<label class="form-check-label" for="statement4_radio1">
+								1 Monitor
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="radio" name="statement4" id="statement4_radio2" value="2" required/>
+							<label class="form-check-label" for="statement4_radio2">
 								Dual Monitor (2 Usable Port)
 							</label>
 						</div>
 						<div class="form-check mb-2">
-							<input class="form-check-input" type="radio" name="exampleForm" id="radioExample3" />
-							<label class="form-check-label" for="radioExample3">
+							<input class="form-check-input" type="radio" name="statement4" id="statement4_radio3" value="3" required/>
+							<label class="form-check-label" for="statement4_radio3">
 								Triple Monitor (3 Usable Port)
 							</label>
 						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="radio" name="statement4" id="statement4_radio4" value="4" required/>
+							<label class="form-check-label" for="statement4_radio4">
+								Multi Monitor (> 3 Usable Port)
+							</label>
+						</div>
+						<div class="text-end">
+							<input class="btn btn-primary" type="submit" value="Submit">
+						</div>
 					</form>
-					<div class="text-end">
-						<button type="button" class="btn btn-primary">Submit</button>
-					</div>
+
+
+
+					
+					<form class=" bg-white px-4" action="">
+					</form>
+					
+					
+					<form class=" bg-white px-4" action="">
+					</form>
+					
+					
+					<form class=" bg-white px-4" action="">
 				</div>
 			</div>
 
-
-			<ul>
-					<% gpus.forEach(function(gpu){ %> 
-							<li> <%= gpu %> </li>
-					<% }) %>
-			</ul>
 </body>
 </html>
 
-<h1>GPU query</h1>
