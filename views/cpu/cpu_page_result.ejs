@@ -25,10 +25,10 @@
 	
 			</header>
 		</div>
-		<form class=" bg-white px-4" action="/crs/gpu/compare" method="POST">
+		<form class=" bg-white px-4" action="/crs/cpu/compare" method="POST">
 			<div class="container d-flex justify-content-center">
 				<div class="row col-10">
-					<h4 class="fw-bold text-center mt-3 mb-3">Rekomendasi GPU / <p class="fst-italic">GPU Recommendation</p></h4>
+					<h4 class="fw-bold text-center mt-3 mb-3">Rekomendasi CPU / <p class="fst-italic">CPU Recommendation</p></h4>
 					<div class="alert alert-warning alert-dismissible fade show" role="alert">
 						<strong>Please!</strong> Check/Choose Atleast 1 Checkbox or more.
 						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -53,10 +53,13 @@
 										<div id="flush-collapse<%=index%>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%=index%>" data-bs-parent="#accordionFlushExample">
 											<div class="accordion-body">
 												<a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse<%=index%>" role="button" aria-expanded="false" aria-controls="multiCollapse<%=index%>">
-													Detail Spesifikasi
+													Detail Spesifikasi/<p class="fst-italic mb-0">Specification Detail:</p>
 												</a>
 												<a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse1_<%=index%>" role="button" aria-expanded="false" aria-controls="multiCollapse1_<%=index%>">
-													Detail Spesifikasi
+													Kebutuhan Fungsional/<p class="fst-italic mb-0">Functional Requirement:</p>
+												</a>
+												<a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse2_<%=index%>" role="button" aria-expanded="false" aria-controls="multiCollapse2_<%=index%>">
+													Kompatibilitas/<p class="fst-italic mb-0">Compatibility</p>
 												</a>
 												<div class="row">
 													<div class="col">
@@ -64,24 +67,24 @@
 														<div class="card card-body">
 															<h6 class="mb-0">Detail Spesifikasi/</h6>
 															<p class="fst-italic mb-0">Specification Details:</p>
-														<li>Chipset: <%=queries[index][0].properties['Chipset']%></li>
-														<li>Memory Type: <%=queries[index][0].properties['Memory Type']%></li>
+														<li>Cores: <%=queries[index][0].properties['Cores']%></li>
+														<li>Data Width: <%=queries[index][0].properties['Data Width']%></li>
 														<li>Harga Rata-rata: <%=queries[index][0].properties['avg']%></li>
-														<li>Total Display Port: <%=queries[index][0].properties['DisplayPort']%></li>
-														<li>Manufacturer: <%=queries[index][0].properties['Manufacturer']%></li>
-														<li>SLI Support: <%=queries[index][0].properties['SLI Support']%></li>
-														<li>Support G-sync: <%=queries[index][0].properties['Support G-sync']%></li>
-														<li>Brand: <%=queries[index][0].properties['make']%></li>
-														<li>Core Clock: <%=queries[index][0].properties['Core Clock']%></li>
-														<li>Boost Clock: <%=queries[index][0].properties['Boost Clock']%></li>
-														<li>Crossfire Support: <%=queries[index][0].properties['Crossfire Support']%></li>
-														<li>Memory Size: <%=queries[index][0].properties['Memory Size']%></li>
-														<li>Length: <%=queries[index][0].properties['Length']%></li>
+														<li>Hyperthreading: <%=queries[index][0].properties['Hyperthreading']%></li>
+														<li>Integrated Graphics: <%=queries[index][0].properties['Integrated Graphics']%></li>
+														<li>L1 Cache: <%=queries[index][0].properties['L1 Cache']%></li>
+														<li>L2 Cache: <%=queries[index][0].properties['L2 Cache']%></li>
+														<li>L3 Cache: <%=queries[index][0].properties['L3 Cache']%></li>
+														<li>Lithography: <%=queries[index][0].properties['Lithography']%></li>
+														<li>Manufacturer/Brand:<%=queries[index][0].properties['Manufacturer:']%></li>
+														<li>Operating Frequency: <%=queries[index][0].properties['Operating Frequency']%></li>
+														<li>Max Turbo Frequency: <%=queries[index][0].properties['Max Turbo Frequency']%></li>
+														<li>Model: <%=queries[index][0].properties['Model']%></li>
+														<li>Thermal Design Power: <%=queries[index][0].properties['Thermal Design Power']%></li>
 														</div>
 													</div>
 													</div>
 												</div>
-											</div>
 												<div class="row">
 													<div class="col">
 													<div class="collapse multi-collapse" id="multiCollapse1_<%=index%>">
@@ -90,11 +93,30 @@
 															<p class="fst-italic mb-0">Functional Requirement:</p>
 															<div class="container">
 																<%for(var i=0; i<queries[index][2].length; i++) {%>
+																	<% if (queries[index][2][i] !== "IS_COMPATIBLE"){ %> 
+																		<li>
+																			<%=queries[index][2][i]%> <a class="text-success fw-bold"> <%= queries[index][1][i]%></a>
+																		</li>
+																	<%}%>
+																<%}%>
+															</div>
+														</div>
+													</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+													<div class="collapse multi-collapse" id="multiCollapse2_<%=index%>">
+														<div class="card card-body">
+															<h6 class="mb-0">Kompatibilitas/</h6>
+															<p class="fst-italic mb-0">Compatibility:</p>
+															<%for(var i=0; i<queries[index][2].length; i++) {%>
+																<% if (queries[index][2][i] == "IS_COMPATIBLE"){ %> 
 																	<li>
 																		<%=queries[index][2][i]%> <a class="text-success fw-bold"> <%= queries[index][1][i]%></a>
 																	</li>
 																<%}%>
-															</div>
+															<%}%>
 														</div>
 													</div>
 													</div>
@@ -116,7 +138,7 @@
 									</td>
 									<td>
 										<div class="form-check">
-											<input class="form-check-input" name="choosen_gpu" type="checkbox" id="flexCheck<%=index%>" value="<%=queries[index][4]%>"/>
+											<input class="form-check-input" name="choosen_cpu" type="checkbox" id="flexCheck<%=index%>" value="<%=queries[index][4]%>"/>
 										</div>
 									</td>
 								</tr>

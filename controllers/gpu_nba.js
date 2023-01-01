@@ -1,5 +1,5 @@
 var neo4jdriver = require('../drivers/neo4j_drivers');
-
+var cookieParser = require('cookie-parser');
 
 exports.gpu_home = function(req,res){
   res.render('gpu/gpu_page')
@@ -147,7 +147,7 @@ exports.gpu_query_filter = function(req,res){
   ${resultStatement2},
   ${resultStatement3},
   ${resultStatement4}
-  RETURN g, collect(type(r)),collect(n.Name), g.avg
+  RETURN g, collect(type(r)),collect(n.Name),g.avg,id(g)
   ORDER BY g.Name
   `
   
@@ -162,13 +162,16 @@ exports.gpu_query_filter = function(req,res){
         const n = row.get('collect(n.Name)')
         const r = row.get('collect(type(r))')
         const gavg = row.get('g.avg').toLocaleString("id-ID", {style:"currency", currency:"IDR"})
-        const query = [gpus,n,r,gavg]
+        const gpu_id = parseInt(row.get('id(g)'))
+        const query = [gpus,n,r,gavg,gpu_id]
         return query
       })
     })
     .then(query => {
+      console.log(query[1][2])
+      console.log(query[1][1])
+      /* console.log(query[5][4]) */
       // `names` is an array of strings
-      console.log(query)
       res.render('gpu/gpu_page_result', {
         queries: query
     })
@@ -178,6 +181,55 @@ exports.gpu_query_filter = function(req,res){
       // database connection or the query
       console.log(e)
     })
-    
-}
 
+  }
+  
+exports.gpu_compare = function(req,res){
+  var raw_gpu_idList = req.body.choosen_gpu
+  // convert string to integer
+  console.log(raw_gpu_idList)
+  if(typeof(raw_gpu_idList) !== "undefined"){
+    if(typeof(raw_gpu_idList) == "string"){
+      gpu_idList = parseInt(raw_gpu_idList)
+    } else {
+      var gpu_idList = raw_gpu_idList.map(function (x) { 
+        return parseInt(x); 
+      });
+    }
+    console.log(gpu_idList)
+    
+    neo4jdriver.session.executeRead(tx => tx.run(
+      `MATCH (g:GPU)<-[r]-(n)
+      WHERE id(g) IN [${gpu_idList}]
+      RETURN g, collect(type(r)),collect(n.Name),g.avg,id(g)
+      ORDER BY g.Name`)
+    )
+      .then(res => {
+        return res.records.map(row => {
+          const gpus = row.get('g')
+          const gavg = row.get('g.avg').toLocaleString("id-ID", {style:"currency", currency:"IDR"})
+          const r = row.get('collect(type(r))')
+          const n = row.get('collect(n.Name)')
+          const gid = row.get('id(g)')
+          query = [gpus,gavg,r,n,gid]
+          return query
+        })
+      })
+      .then(query => {
+        // `query` is an array of strings
+      
+        res.render('gpu/gpu_page_compare', {
+          queries: query
+      })
+      })
+      .catch(e => {
+        // There was a problem with the
+        // database connection or the query
+        console.log(e)
+      })
+  } else {
+    console.log("Error not checked any choices!")
+  }
+  
+
+}

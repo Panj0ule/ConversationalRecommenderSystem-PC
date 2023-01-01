@@ -1,0 +1,249 @@
+<html> 
+	<head> 
+			<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+	</head>
+
+	<body> 
+			<!-- HEADER -->
+			<div class="container">
+				<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+					<a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+						<!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg> -->
+					</a>
+		
+					<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+						<li><a href="#" class="nav-link px-2 link-secondary">Conversational Recommender System - PC Specification</a></li>
+					</ul>
+		
+					<div class="col-md-3 text-end">
+						<!-- <button type="button" class="btn btn-outline-primary me-2">Login</button> -->
+						<!-- <button type="button" class="btn btn-primary">Sign-up</button> -->
+					</div>
+				</header>
+			</div>
+	
+			<div class="container d-flex justify-content-center">
+				<div class="row col-6">
+					<h4 class="fw-bold text-center mt-3">CPU Question Related</h4>
+					<p class="text-center">
+						*Skala intensitas diurutkan dari atas ke bawah <br>
+						(option terbawah intensitas tertinggi)
+					</p>
+					<!-- STATEMENT 1 GAMES -->
+					<form class=" bg-white px-4" action="/crs/cpu/result" method="POST">
+						<p class="fw-bold mt-2 mb-0">
+							Pilihlah intensitas anda dalam <a class="text-success">aktivitas bermain games</a>: 
+						</p>
+						<p class="fst-italic">
+							Choose your intensity for <a class="text-success">playing games activity</a>: 
+						</p>
+						<div class="form-check mb-2">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox1" value="no"/>
+							<label class="form-check-label" for="statement1_checkbox1">
+								Tidak/No, Saya tidak akan bermain games pada PC ini.
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox2" value="Lightweight Games"/>
+							<label class="form-check-label" for="statement1_checkbox2">
+								Lightweight Games (Minigames, Children games)
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox3" value="Casual Games"/>
+							<label class="form-check-label" for="statement1_checkbox3">
+								Casual Games
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox4" value="Competitive Games"/>
+							<label class="form-check-label" for="statement1_checkbox4">
+								Competitive Games
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" name="statement1" type="checkbox" id="statement1_checkbox5"value="Heavy Performance Games" />
+							<label class="form-check-label" for="statement1_checkbox5">
+								Heavy Performance Games
+							</label>
+						</div>
+
+						<!-- STATEMENT 2 MULTIMEDIA -->
+						<p class="fw-bold mt-2 mb-0">
+							Pilihlah intensitas anda dalam <a class="text-success">aktivitas pekerjaan Multimedia</a>: 
+						</p>
+						<p class="fst-italic">
+							Choose you intensity for <a class="text-success">Multimedia Work activity</a>: 
+						</p>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox1" value="Hanya Memutar Video"/>
+							<label class="form-check-label" for="statement2_checkbox1">
+								Memutar Video
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox2" value="Standard Digital/Video Editing"/>
+							<label class="form-check-label" for="statement2_checkbox2">
+								Standard Digital/Video Editing
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox3" value="Animating/3D Modelling"/>
+							<label class="form-check-label" for="statement2_checkbox3">
+								Animating/3D Modelling
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement2" id="statement2_checkbox4" value="Professional Editing/Rendering"/>
+							<label class="form-check-label" for="statement2_checkbox4">
+								Professional Editing/Rendering
+							</label>
+						</div>
+
+						<!-- STATEMENT 3 SERVER -->
+						<p class="fw-bold mt-2 mb-0">
+							Pilihlah intensitas anda dalam <a class="text-success">aktivitas PC anda dijadikan Home Server</a>: 
+						</p>
+						<p class="fst-italic">
+							Choose you intensity for <a class="text-success">Your pc As Home Server</a>: 
+						</p>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement3" id="statement3_checkbox1" value="no"/>
+							<label class="form-check-label" for="statement3_checkbox1">
+								Tidak/No, Saya tidak akan melakukan aktivitas Home Server
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement3" id="statement3_checkbox2" value="Lightweight Hosting"/>
+							<label class="form-check-label" for="statement3_checkbox2">
+								Lightweight Hosting
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement3" id="statement3_checkbox3" value="Performance Demanding Hosting"/>
+							<label class="form-check-label" for="statement3_checkbox3">
+								Performance Demanding Hosting
+							</label>
+						</div>
+                        
+						<!-- STATEMENT 4 DEVELOPER -->
+						<p class="fw-bold mt-2 mb-0">
+							Pilihlah intensitas anda dalam <a class="text-success">aktivitas PC anda dalam Developing</a>: 
+						</p>
+						<p class="fst-italic">
+							Choose you intensity for <a class="text-success">Your pc As a Developer</a>: 
+						</p>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement4" id="statement4_checkbox1" value="no"/>
+							<label class="form-check-label" for="statement4_checkbox1">
+								Tidak/No, Saya tidak akan melakukan aktivitas Developer
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement4" id="statement4_checkbox2" value="Developing Web Apps"/>
+							<label class="form-check-label" for="statement4_checkbox2">
+								Developing Web Apps
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement4" id="statement4_checkbox3" value="Developing Mobile Apps (+Simulating Devices)"/>
+							<label class="form-check-label" for="statement4_checkbox3">
+								Developing Mobile Apps (+Simulating Devices)
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement4" id="statement4_checkbox4" value="Developing Demanding Desktop Apps"/>
+							<label class="form-check-label" for="statement4_checkbox4">
+								Developing Demanding Desktop Apps
+							</label>
+						</div>
+						<div class="form-check mb-2">
+							<input class="form-check-input" type="checkbox" name="statement4" id="statement4_checkbox5" value="Advanced Developer"/>
+							<label class="form-check-label" for="statement4_checkbox5">
+								Advanced Developer
+							</label>
+						</div>
+						
+                        <!-- STATEMENT 5 MACHINE LEARNING -->
+                        <p class="fw-bold mt-2 mb-0">
+                            Pilihlah intensitas anda dalam <a class="text-success">aktivitas PC dalam Machine Learning</a>: 
+                        </p>
+                        <p class="fst-italic">
+                            Choose you intensity for <a class="text-success">Machine Learning</a>: 
+                        </p>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement5" id="statement5_checkbox1" value="no"/>
+                            <label class="form-check-label" for="statement5_checkbox1">
+                                Tidak/No, Saya tidak akan melakukan aktivitas Machine Learning
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement5" id="statement5_checkbox2" value="Standard Data Learning"/>
+                            <label class="form-check-label" for="statement5_checkbox2">
+                                Standard Data Learning
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement5" id="statement5_checkbox3" value="High Data Volume Learning"/>
+                            <label class="form-check-label" for="statement5_checkbox3">
+                                	High Data Volume Learning
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement5" id="statement5_checkbox4" value="High Performance Learning"/>
+                            <label class="form-check-label" for="statement5_checkbox4">
+                                High Performance Learning
+                            </label>
+                        </div>
+                        
+                        <!-- STATEMENT 6 MACHINE LEARNING -->
+                        <p class="fw-bold mt-2 mb-0">
+                            Pilihlah intensitas anda dalam <a class="text-success">aktivitas Multi-tasking</a>: 
+                        </p>
+                        <p class="fst-italic">
+                            Choose you intensity for <a class="text-success">Multi Tasking</a>: 
+                        </p>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement6" id="statement6_checkbox1" value="no"/>
+                            <label class="form-check-label" for="statement6_checkbox1">
+                                Tidak/No, Saya tidak akan melakukan aktivitas Multi Tasking
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement6" id="statement6_checkbox2" value="Office Software"/>
+                            <label class="form-check-label" for="statement6_checkbox2">
+                                Office Software (pdf, docs, spreadsheet, etc …)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="statement6" id="statement6_checkbox3" value="Editing Software"/>
+                            <label class="form-check-label" for="statement6_checkbox3">
+                                Editing Software (Adobe Product, Corel, Blender, Etc..)
+                            </label>
+                        </div>
+						<div class="text-end">
+							<input class="btn btn-primary" type="submit" value="Submit">
+						</div>
+					</form>
+
+
+
+					
+					<form class=" bg-white px-4" action="">
+					</form>
+					
+					
+					<form class=" bg-white px-4" action="">
+					</form>
+					
+					
+					<form class=" bg-white px-4" action="">
+				</div>
+			</div>
+
+</body>
+</html>
+

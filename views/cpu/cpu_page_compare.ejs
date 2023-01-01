@@ -29,7 +29,7 @@
 				</div>
 			</header>
 		</div>
-		<form class=" bg-white px-4" action="/crs/cpu-checkpoint" method="POST">
+		<form class=" bg-white px-4" action="/crs/ram-checkpoint" method="POST">
 			<div class="container">
 				<section class="text-center">
 					<h4 class="mb-4"><strong>Perbandingan Produk</strong></h4>
@@ -56,15 +56,15 @@
 									</thead>
 									<tbody>
 									  <tr>
-										<th scope="row">Chipset</th>
+										<th scope="row">Cores</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Chipset']%></td>
+											<td><%=queries[i][0].properties['Cores']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Memory Type</th>
+										<th scope="row">Data Width</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Memory Type']%></td>
+											<td><%=queries[i][0].properties['Data Width']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
@@ -74,21 +74,33 @@
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Manufacturer</th>
+										<th scope="row">Hyperthreading</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Manufacturer']%></td>
+											<td><%=queries[i][0].properties['Hyperthreading']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">SLI Support</th>
+										<th scope="row">Integrated Graphics</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['SLI Support']%></td>
+											<td><%=queries[i][0].properties['Integrated Graphics']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Brand</th>
+										<th scope="row">L1 Cache</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['make']%></td>
+											<td><%=queries[i][0].properties['L1 Cache']%></td>
+										  <% } %> 
+									  </tr>
+									  <tr>
+										<th scope="row">L2 Cache</th>
+										<% for(i=0;i<queries.length;i++){ %>
+											<td><%=queries[i][0].properties['L2 Cache']%></td>
+										  <% } %> 
+									  </tr>
+									  <tr>
+										<th scope="row">L3 Cache</th>
+										<% for(i=0;i<queries.length;i++){ %>
+											<td><%=queries[i][0].properties['L3 Cache']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
@@ -98,40 +110,46 @@
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Boost Clock</th>
+										<th scope="row">Lithography</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Boost Clock']%></td>
+											<td><%=queries[i][0].properties['Lithography']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Memory Type</th>
+										<th scope="row">Manufacturer</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Memory Type']%></td>
+											<td><%=queries[i][0].properties['Manufacturer']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Crossfire Support</th>
+										<th scope="row">Model</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Crossfire Support']%></td>
+											<td><%=queries[i][0].properties['Model']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Memory Size</th>
+										<th scope="row">Operating Frequency</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Memory Size']%></td>
+											<td><%=queries[i][0].properties['Operating Frequency']%></td>
 										  <% } %> 
 									  </tr>
 									  <tr>
-										<th scope="row">Length</th>
+										<th scope="row">Max Turbo Frequency</th>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><%=queries[i][0].properties['Length']%></td>
+											<td><%=queries[i][0].properties['Max Turbo Frequency']%></td>
+										  <% } %> 
+									  </tr>
+									  <tr>
+										<th scope="row">Thermal Design Power</th>
+										<% for(i=0;i<queries.length;i++){ %>
+											<td><%=queries[i][0].properties['Thermal Design Power']%></td>
 										  <% } %> 
 									  </tr>
 									</tbody>
 									<tr>
 									  <th scope="row"></th>
 									  <% for(i=0;i<queries.length;i++){ %>
-											<td><button class="btn btn-dark" id="finalGPU"  name="finalGPU" type="submit" value="<%= queries[i][4] %>" data-bs-toggle="modal" data-bs-target="#modalSubmit">Choose GPU</button></td>
+											<td><button class="btn btn-dark" id="finalCPU"  name="finalCPU" type="submit" value="<%= queries[i][4] %>" data-bs-toggle="modal" data-bs-target="#modalSubmit">Choose CPU</button></td>
 										<% } %> 
 									</tr>
 								</table>
@@ -139,23 +157,22 @@
 						  </div>
 						  <div class="carousel-item">
 							<div class="table-responsive">
-								<table class="table">
-									<thead>
-										<tr>
-											<% for(i=0;i<queries.length;i++){ %>
-											  <th scope="col"><%= queries[i][0].properties['Name']%> %></th>
-											<% } %> 
-										</tr>
-									</thead>
+								<table class="table" id="transposeThis">
 									<tbody>
-									  <tr>
-										  <% for(i=0;i<queries.length;i++){ %>
-											<td><%= queries[i][3]%> </td>
+										<% for(i=0;i<queries.length;i++){ %>
+											<tr>
+												<th scope="col"><%= queries[i][0].properties['Name']%> %></th>
+											<% for(j=0;j<queries[i][2].length;j++){ %>
+												<% if (queries[i][2][j] !== "IS_COMPATIBLE"){ %> 
+													<td><%= queries[i][3][j]%> </td>
+												<% } %> 
+											<% } %> 
+											<td><button class="btn btn-dark" id="finalCPU"  name="finalCPU" type="submit" value="<%= queries[i][4] %>" data-bs-toggle="modal" data-bs-target="#modalSubmit">Choose CPU</button></td>
+											</tr>
 										<% } %> 
-									  </tr>
 									  <tr>
 										<% for(i=0;i<queries.length;i++){ %>
-											<td><button class="btn btn-dark" id="finalGPU"  name="finalGPU" type="submit" value="<%= queries[i][4] %>" data-bs-toggle="modal" data-bs-target="#modalSubmit">Choose GPU</button></td>
+											
 										<% } %> 
 									  </tr>
 									</tbody>
