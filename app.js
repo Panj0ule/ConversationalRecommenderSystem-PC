@@ -4,7 +4,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const neo4j = require('neo4j-driver');
+var LocalStorage = require('node-localstorage').LocalStorage;
 
+localStorage = new LocalStorage('./scratch');
 var app = express();
 app.use(cookieParser());
 //var gpu_model = require('gpu_nba')
@@ -26,6 +28,9 @@ const session = driver.session()
 var gpu_nba = require('./controllers/gpu_nba'); // gpu_nba controller
 var cpu_nba = require('./controllers/cpu_nba'); // cpu_nba controller
 var ram_nba = require('./controllers/ram_nba'); // ram_nba controller
+var hdd_nba = require('./controllers/hdd_nba'); // hdd_nba controller
+var mobo_nba = require('./controllers/mobo_nba'); // mobo_nba controller
+var final = require('./controllers/final'); // final controller
 
 
 
@@ -52,7 +57,27 @@ app.get('/crs/cpu', cpu_nba.cpu_home);
 app.post('/crs/cpu/result', cpu_nba.cpu_query_filter);
 app.post('/crs/cpu/compare', cpu_nba.cpu_compare);
 
+app.post('/crs/mobo-checkpoint', mobo_nba.mobo_checkpoint);
+app.get('/crs/mobo', mobo_nba.mobo_home);
+app.post('/crs/mobo/result', mobo_nba.mobo_query_filter);
+app.post('/crs/mobo/compare', mobo_nba.mobo_compare);
+app.get('/crs/mobo/nocompatible', mobo_nba.mobo_nocompatible);
+
 app.post('/crs/ram-checkpoint', ram_nba.ram_checkpoint);
+app.get('/crs/ram', ram_nba.ram_home);
+app.post('/crs/ram/result', ram_nba.ram_query_filter);
+app.post('/crs/ram/compare', ram_nba.ram_compare);
+
+app.post('/crs/hdd-checkpoint', hdd_nba.hdd_checkpoint);
+app.get('/crs/hdd', hdd_nba.hdd_home);
+app.post('/crs/hdd/result', hdd_nba.hdd_query_filter);
+app.post('/crs/hdd/compare', hdd_nba.hdd_compare);
+
+
+
+
+app.post('/crs/final', final.final_checkpoint);
+app.get('/crs/finish', final.finish_page);
 app.listen(3000);
 
 module.exports = app;

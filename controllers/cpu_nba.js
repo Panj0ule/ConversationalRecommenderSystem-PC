@@ -17,15 +17,17 @@ exports.cpu_checkpoint = function(req,res){
 			const r = row.get('collect(type(r))')
 			const n = row.get('collect(n.Name)')
 			const gid = row.get('id(g)')
-			query = [gpus,gavg,r,n,gid]
+			const forCookie = [gpus,gavg,gid]
+			const query = [[gpus,gavg,r,n,gid],forCookie]
+      
 			return query
 		})
 	})
 	.then(query => {
 		// `query` is an array of strings
-		res.cookie('finalGPUID', query)
+		res.cookie('finalGPUID', query[0][1])
 		res.render('cpu/checkpoint', {
-			queries: query
+			queries: query[0]
 	})
 	})
 	.catch(e => {

@@ -1,0 +1,200 @@
+<html>
+    <head> 
+                <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- BOOTSTRAP ICON FONT -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+        <!-- Bootstraps script -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- TABLE SORT SCRIPT -->
+        <script src="https://leewannacott.github.io/table-sort-js/table-sort.js"></script>
+    </head>
+
+    <body>
+        <!-- HEADER -->
+		<div class="container">
+			<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+				<a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+					<!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg> -->
+				</a>
+	
+				<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+					<li><a href="#" class="nav-link px-2 link-secondary">Conversational Recommender System - PC Specification</a></li>
+				</ul>
+	
+				<div class="col-md-3 text-end">
+				</div>
+			</header>
+		</div>
+        <div class="container col-10">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Hardware</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Harga</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">GPU</th>
+                    <td>
+                        <%= gpus[0].properties['Name'] %>
+                        <div class="row mt-4">
+                            <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapse">
+                                <div class="card card-body">
+                                  <h6 class="mb-0">Detail Spesifikasi/</h6>
+                                  <p class="fst-italic mb-0">Specification Details:</p>
+                                <li>Chipset: <%=gpus[0].properties['Chipset']%></li>
+                                <li>Memory Type: <%=gpus[0].properties['Memory Type']%></li>
+                                <li>Harga Rata-rata: <%=gpus[0].properties['avg']%></li>
+                                <li>Total Display Port: <%=gpus[0].properties['DisplayPort']%></li>
+                                <li>Manufacturer: <%=gpus[0].properties['Manufacturer']%></li>
+                                <li>SLI Support: <%=gpus[0].properties['SLI Support']%></li>
+                                <li>Support G-sync: <%=gpus[0].properties['Support G-sync']%></li>
+                                <li>Brand: <%=gpus[0].properties['make']%></li>
+                                <li>Core Clock: <%=gpus[0].properties['Core Clock']%></li>
+                                <li>Boost Clock: <%=gpus[0].properties['Boost Clock']%></li>
+                                <li>Crossfire Support: <%=gpus[0].properties['Crossfire Support']%></li>
+                                <li>Memory Size: <%=gpus[0].properties['Memory Size']%></li>
+                                <li>Length: <%=gpus[0].properties['Length']%></li>
+                                </div>
+                            </div>
+                            </div>
+                        </div> 
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse" role="button" aria-expanded="false" aria-controls="multiCollapse">
+                            Detail Spesifikasi
+                        </a>
+                        
+                    </td>
+                    <td>
+                        <p class="fw-bold"><%= gpus[1] %> </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">CPU</th>
+                    <td>
+                      <%= cpus[0].properties['Name'] %>
+                      <div class="row mt-4">
+                        <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapse1">
+                          <div class="card card-body">
+                            <h6 class="mb-0">Detail Spesifikasi/</h6>
+                            <p class="fst-italic mb-0">Specification Details:</p>
+                          <li>Cores: <%=cpus[0].properties['cores']%></li>
+                          <li>Data Width: <%=cpus[0].properties['Data Width']%></li>
+                          <li>Harga Rata-rata: <%=cpus[0].properties['avg']%></li>
+                          <li>Hyperthreading: <%=cpus[0].properties['Hyperthreading']%></li>
+                          <li>Integrated Graphics: <%=cpus[0].properties['Integrated Graphics']%></li>
+                          <li>L1 Cache: <%=cpus[0].properties['L1 Cache']%></li>
+                          <li>L2 Cache: <%=cpus[0].properties['L2 Cache']%></li>
+                          <li>L3 Cache: <%=cpus[0].properties['L3 Cache']%></li>
+                          <li>Lithography: <%=cpus[0].properties['Lithography']%></li>
+                          <li>Manufacturer/Brand:<%=cpus[0].properties['Manufacturer:']%></li>
+                          <li>Operating Frequency: <%=cpus[0].properties['Operating Frequency']%></li>
+                          <li>Max Turbo Frequency: <%=cpus[0].properties['Max Turbo Frequency']%></li>
+                          <li>Model: <%=cpus[0].properties['Model']%></li>
+                          <li>Thermal Design Power: <%=cpus[0].properties['Thermal Design Power']%></li>
+                          </div>
+                        </div>
+                        </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse1" aria-expanded="false" aria-controls="multiCollapse1">              
+                       Detail Spesifikasi
+                      </a>
+                      
+                  </td>
+                  <td>
+                      <p class="fw-bold"><%= cpus[1] %> </p>
+                  </td>
+                  </tr>
+                    <th scope="row">RAM</th>
+                    <td>
+                      <%= rams[0].properties['Name'] %>
+                      <div class="row mt-4">
+                        <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapse2">
+                          <div class="card card-body">
+                            <h6 class="mb-0">Detail Spesifikasi/</h6>
+                            <p class="fst-italic mb-0">Specification Details:</p>
+                          <li>CAS Latency: <%=rams[0].properties['CAS Latency']%></li>
+                          <li>ECC: <%=rams[0].properties['ECC']%></li>
+                          <li>Harga Rata-rata: <%=rams[0].properties['avg']%></li>
+                          <li>Heat Spreader: <%=rams[0].properties['Heat Spreader']%></li>
+                          <li>Manufacturer: <%=rams[0].properties['Manufacturer']%></li>
+                          <li>SLI Support: <%=rams[0].properties['SLI Support']%></li>
+                          <li>Size: <%=rams[0].properties['Size']%></li>
+                          <li>Individual Size: <%=rams[0].properties['mod_size']%></li>
+                          <li>DDR Type: <%=rams[0].properties['ddr_type']%></li>
+                          <li>DDR Speed: <%=rams[0].properties['ddr_speed']%></li>
+                          <li>Pin Type: <%=rams[0].properties['Type']%></li>
+                          <li>Voltage: <%=rams[0].properties['Voltage']%></li>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                      </td>
+                      <td>
+                        <a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse2" aria-expanded="false" aria-controls="multiCollapse2">              
+                         Detail Spesifikasi
+                        </a> 
+                      </td>
+                      <td>
+                        <p class="fw-bold"><%= rams[1] %> </p>
+                      </td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <th scope="row">HDD</th>
+                    <td>
+                      <%= hdds[0][0].properties['Name'] %>
+                      <div class="row">
+                        <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapse3">
+                          <div class="card card-body">
+                            <h6 class="mb-0">Detail Spesifikasi/</h6>
+                            <p class="fst-italic mb-0">Specification Details:</p>
+                          <li>SSD: <%=hdds[0][0].properties['is_ssd']%></li>
+                          <li>RPM: <%=hdds[0][0].properties['RPM']%></li>
+                          <li>Harga Rata-rata: <%=hdds[0][0].properties['avg']%></li>
+                          <li>Form Factor: <%=hdds[0][0].properties['Form Factor']%></li>
+                          <li>Capacity: <%=hdds[0][0].properties['Capacity']%></li>
+                          <li>Manufacturer: <%=hdds[0][0].properties['Manufacturer']%></li>
+                          <li>Cache: <%=hdds[0][0].properties['Cache']%></li>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-outline-secondary mb-2 mt-2" data-bs-toggle="collapse" href="#multiCollapse3" aria-expanded="false" aria-controls="multiCollapse3">              
+                       Detail Spesifikasi
+                      </a> 
+                    </td>
+                    <td>
+                      <p class="fw-bold"><%= hdds[0][1] %> </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Motherboard</th>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                  </tr>
+                </tbody>
+              </table>
+              <a href="/crs/mobo">
+                  <div class="text-end mt-5">
+                      <button type="button" class="btn btn-primary">Next Recommendation (Motherboard)</button>
+                  </div>
+              </a>
+        </div>
+    </body>
+</html>

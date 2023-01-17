@@ -168,8 +168,8 @@ exports.gpu_query_filter = function(req,res){
       })
     })
     .then(query => {
-      console.log(query[1][2])
-      console.log(query[1][1])
+      // console.log(query[1][2])
+      // console.log(query[1][1])
       /* console.log(query[5][4]) */
       // `names` is an array of strings
       res.render('gpu/gpu_page_result', {

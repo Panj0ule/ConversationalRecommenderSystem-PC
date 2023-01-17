@@ -38,7 +38,7 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">GPU</th>
+								<th scope="col">CPU</th>
 								<th scope="col">Detail</th>
 								<th scope="col">Harga (Rp.)</th>
 								<th scope="col">Pilih?</th>
@@ -67,6 +67,7 @@
 														<div class="card card-body">
 															<h6 class="mb-0">Detail Spesifikasi/</h6>
 															<p class="fst-italic mb-0">Specification Details:</p>
+														<li>Socket: <%=queries[index][0].properties['Socket']%></li>
 														<li>Cores: <%=queries[index][0].properties['Cores']%></li>
 														<li>Data Width: <%=queries[index][0].properties['Data Width']%></li>
 														<li>Harga Rata-rata: <%=queries[index][0].properties['avg']%></li>
